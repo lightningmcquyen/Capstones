@@ -1,22 +1,31 @@
 package com.pluralsight.ledger;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate; // Imports the LocalDate class for handling dates
+import java.time.LocalTime; // Imports the LocalTime class for handling times
 
 public class Transaction {
-    private LocalDateTime dateTime;
-    private String description;
-    private String vendor;
-    private double amount;
+    private LocalDate date; // Date of the transaction
+    private LocalTime time; // Time of the transaction
+    private String description; // Description of the transaction
+    private String vendor; // Vendor associated with the transaction
+    private double amount; // Amount of the transaction
 
-    public Transaction(LocalDateTime dateTime, String description, String vendor, double amount) {
-        this.dateTime = dateTime;
+    // Constructor to initialize a new transaction
+    public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
+        this.date = date;
+        this.time = time;
         this.description = description;
         this.vendor = vendor;
         this.amount = amount;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    // Getters for each field
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public LocalTime getTime() {
+        return time;
     }
 
     public String getDescription() {
@@ -31,8 +40,9 @@ public class Transaction {
         return amount;
     }
 
+    // toString method for easy printing
     @Override
     public String toString() {
-        return dateTime + " | " + description + " | " + vendor + " | " + amount;
+        return String.format("%s | %s | %s | %s | %.2f", date, time, description, vendor, amount);
     }
 }
