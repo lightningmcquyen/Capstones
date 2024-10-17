@@ -31,11 +31,11 @@ public class AccountingLedger {
 
         do {
             System.out.println("$$$ Accounting Ledger Application $$$");
-            System.out.println("D) Add Deposit");
-            System.out.println("P) Make Payment");
-            System.out.println("L) Ledger Entries");
-            System.out.println("R) Access Reports");
-            System.out.println("X) Exit");
+            System.out.println("(D) Add Deposit");
+            System.out.println("(P) Make Payment");
+            System.out.println("(L) Ledger Entries");
+            System.out.println("(R) Access Reports");
+            System.out.println("(X) Exit");
 
             choice = scanley.nextLine().toUpperCase(); // Read user choice
 
@@ -67,11 +67,11 @@ public class AccountingLedger {
 
         do {
             System.out.println("Ledger Entries");
-            System.out.println("A) All Entries");
-            System.out.println("D) Deposits Only");
-            System.out.println("P) Payments Only");
-            System.out.println("H) Home");
-            System.out.println("X) Exit");
+            System.out.println("(A) All Entries");
+            System.out.println("(D) Deposits Only");
+            System.out.println("(P) Payments Only");
+            System.out.println("(H) Home");
+            System.out.println("(X) Exit");
 
             choice = scanley.nextLine().toUpperCase(); // Read user choice
 
