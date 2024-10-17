@@ -24,12 +24,13 @@ public class AccountingLedger {
     }
 
 
+
     // Display the home screen menu
     private void showHomeScreen() {
         String choice;
 
         do {
-            System.out.println("Accounting Ledger Application");
+            System.out.println("$$$ Accounting Ledger Application $$$");
             System.out.println("D) Add Deposit");
             System.out.println("P) Make Payment");
             System.out.println("L) Ledger Entries");
