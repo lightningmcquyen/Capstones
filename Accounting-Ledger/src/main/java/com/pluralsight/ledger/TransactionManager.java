@@ -122,7 +122,7 @@ public class TransactionManager {
         fileManager.saveTransaction(paymentTransaction); // Save transaction to the file
     }
 
-    // Placeholder methods for reports (implement as needed)
+    // Placeholder methods for reports
     public void showMonthToDateReport() {
         // Implement the month-to-date report logic here
     }

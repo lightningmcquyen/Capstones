@@ -36,7 +36,7 @@ public class FileManager {
 
     // Method to save a transaction to the file
     public void saveTransaction(Transaction transaction) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) { // Open file in append mode
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) { // Open file
             writer.write(String.format("%s|%s|%s|%s|%.2f",
                     transaction.getDate(), transaction.getTime(), transaction.getDescription(),
                     transaction.getVendor(), transaction.getAmount())); // Write transaction

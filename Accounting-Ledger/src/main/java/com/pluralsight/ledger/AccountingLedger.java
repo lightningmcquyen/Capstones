@@ -20,7 +20,7 @@ public class AccountingLedger {
 
     public static void main(String[] args) {
         AccountingLedger app = new AccountingLedger();
-        app.run(); // Start the application
+        app.run(); // Run the application
     }
 
 
