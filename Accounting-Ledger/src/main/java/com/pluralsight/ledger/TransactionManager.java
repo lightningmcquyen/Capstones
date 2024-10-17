@@ -2,6 +2,7 @@ package com.pluralsight.ledger;
 
 import java.time.LocalDate; // Imports LocalDate for handling dates
 import java.time.LocalTime; // Imports LocalTime for handling times
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList; // Imports ArrayList for using dynamic arrays
 import java.util.List; // Imports List interface
 import java.util.Scanner; // Imports Scanner for user input
@@ -39,6 +40,9 @@ public class TransactionManager {
     private void addDeposit(String description, String vendor, double amount) {
         LocalDate date = LocalDate.now(); // Get current date
         LocalTime time = LocalTime.now(); // Get current time
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String formattedTime = time.format(timeFormatter);
+
         Transaction depositTransaction = new Transaction(date, time, description, vendor, amount); // Create transaction
         transactionManager.add(depositTransaction); // Add transaction to the list
         fileManager.saveTransaction(depositTransaction); // Save transaction to the file

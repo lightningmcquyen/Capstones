@@ -21,7 +21,7 @@ public class FileManager {
                 String[] parts = line.split("\\|"); // Split the line by '|'
                 if (parts.length == 5) { // Ensure there are 5 parts
                     LocalDate date = LocalDate.parse(parts[0], DateTimeFormatter.ISO_LOCAL_DATE); // Parse date
-                    LocalTime time = LocalTime.parse(parts[1], DateTimeFormatter.ISO_LOCAL_TIME); // Parse time
+                    LocalTime time = LocalTime.parse(parts[1], DateTimeFormatter.ofPattern("HH:mm:ss")); // Parse time
                     String description = parts[2]; // Description
                     String vendor = parts[3]; // Vendor
                     double amount = Double.parseDouble(parts[4]); // Amount

@@ -1,14 +1,19 @@
 package com.pluralsight.ledger;
 
-import java.time.LocalDate; // Imports the LocalDate class for handling dates
-import java.time.LocalTime; // Imports the LocalTime class for handling times
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Transaction {
-    private LocalDate date; // Date of the transaction
-    private LocalTime time; // Time of the transaction
-    private String description; // Description of the transaction
-    private String vendor; // Vendor associated with the transaction
-    private double amount; // Amount of the transaction
+    private final LocalDate date; // Date of the transaction
+    private final LocalTime time; // Time of the transaction
+    private final String description; // Description of the transaction
+    private final String vendor; // Vendor associated with the transaction
+    private final double amount; // Amount of the transaction
+
+    // Define formatters
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     // Constructor to initialize a new transaction
     public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
@@ -40,9 +45,20 @@ public class Transaction {
         return amount;
     }
 
+    // Methods to get formatted date and time
+    public String getFormattedDate() {
+        return date.format(DATE_FORMATTER);
+    }
+
+    public String getFormattedTime() {
+        return time.format(TIME_FORMATTER);
+    }
+
     // toString method for easy printing
     @Override
     public String toString() {
-        return String.format("%s | %s | %s | %s | %.2f", date, time, description, vendor, amount);
+        return String.format("%s | %s | %s | %s | %.2f",
+                getFormattedDate(), getFormattedTime(), description, vendor, amount);
     }
 }
+
