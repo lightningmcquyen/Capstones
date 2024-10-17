@@ -7,14 +7,41 @@ import java.util.List; // Imports List interface
 import java.util.Scanner; // Imports Scanner for user input
 
 public class TransactionManager {
-    private List<Transaction> transactions; // List to hold all transactions
+    private List<Transaction> transactionManager; // List to hold all transactions
     private FileManager fileManager; // Instance of FileManager for file operations
+
+    // Method to load transactions from the file
+    private void loadTransactions() {
+        transactionManager.addAll(fileManager.loadTransactions()); // Load transactions and add to the list
+    }
 
     // Constructor initializes the transaction list and loads transactions from file
     public TransactionManager() {
-        transactions = new ArrayList<>(); // Initialize the transactions list
+        transactionManager = new ArrayList<>(); // Initialize the transactions list
         fileManager = new FileManager(); // Create a new FileManager instance
         loadTransactions(); // Load existing transactions from the file
+    }
+
+    // Method to read and validate amount input
+    private double readAmount(Scanner scanley) {
+        while (true) {
+            try {
+                String input = scanley.nextLine(); // Read input from user
+                return Double.parseDouble(input); // Try to parse as double
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                System.out.println("Invalid amount. Please enter a valid number."); // Handle invalid input
+            }
+        }
+    }
+
+    // Method to add a deposit
+    private void addDeposit(String description, String vendor, double amount) {
+        LocalDate date = LocalDate.now(); // Get current date
+        LocalTime time = LocalTime.now(); // Get current time
+        Transaction depositTransaction = new Transaction(date, time, description, vendor, amount); // Create transaction
+        transactionManager.add(depositTransaction); // Add transaction to the list
+        fileManager.saveTransaction(depositTransaction); // Save transaction to the file
     }
 
     // Method to add a deposit
@@ -29,6 +56,15 @@ public class TransactionManager {
     }
 
     // Method to add a payment
+    private void addPayment(String description, String vendor, double amount) {
+        LocalDate date = LocalDate.now(); // Get current date
+        LocalTime time = LocalTime.now(); // Get current time
+        Transaction paymentTransaction = new Transaction(date, time, description, vendor, -amount); // Create payment transaction
+        transactionManager.add(paymentTransaction); // Add transaction to the list
+        fileManager.saveTransaction(paymentTransaction); // Save transaction to the file
+    }
+
+    // Method to add a payment
     public void addPaymentPrompt(Scanner scanley) {
         System.out.print("Enter description: ");
         String description = scanley.nextLine(); // Read description
@@ -39,15 +75,21 @@ public class TransactionManager {
         addPayment(description, vendor, amount); // Delegate to addPayment method
     }
 
-    // Method to load transactions from the file
-    private void loadTransactions() {
-        transactions.addAll(fileManager.loadTransactions()); // Load transactions and add to the list
+    // Method to display a list of transactions
+    private void displayTransactions(List<Transaction> transactionsToDisplay) {
+        if (transactionsToDisplay.isEmpty()) {
+            System.out.println("No transactions found."); // Inform user if no transactions exist
+            return;
+        }
+        transactionsToDisplay.forEach(transaction -> System.out.println(transaction)); // Display each transaction
     }
 
     // Method to display all transactions
     public void displayAllTransactions() {
-        displayTransactions(transactions); // Show all transactions
+        displayTransactions(transactionManager); // Show all transactions
     }
+
+
 
     // Method to filter and display only deposit transactions
     public void displayDeposits() {
@@ -64,7 +106,7 @@ public class TransactionManager {
     // Method to filter and return only deposit transactions
     private List<Transaction> filterDeposits() {
         List<Transaction> deposits = new ArrayList<>(); // List to hold deposits
-        for (Transaction transaction : transactions) {
+        for (Transaction transaction : transactionManager) {
             if (transaction.getAmount() > 0) {
                 deposits.add(transaction); // Add deposit transactions to the list
             }
@@ -75,7 +117,7 @@ public class TransactionManager {
     // Method to filter and return only payment transactions
     private List<Transaction> filterPayments() {
         List<Transaction> payments = new ArrayList<>(); // List to hold payments
-        for (Transaction transaction : transactions) {
+        for (Transaction transaction : transactionManager) {
             if (transaction.getAmount() < 0) {
                 payments.add(transaction); // Add payment transactions to the list
             }
@@ -83,44 +125,8 @@ public class TransactionManager {
         return payments; // Return the list of payments
     }
 
-    // Method to display a list of transactions
-    private void displayTransactions(List<Transaction> transactionsToDisplay) {
-        if (transactionsToDisplay.isEmpty()) {
-            System.out.println("No transactions found."); // Inform user if no transactions exist
-            return;
-        }
-        transactionsToDisplay.forEach(transaction -> System.out.println(transaction)); // Display each transaction
-    }
 
-    // Method to read and validate amount input
-    private double readAmount(Scanner scanley) {
-        while (true) {
-            try {
-                String input = scanley.nextLine(); // Read input from user
-                return Double.parseDouble(input); // Try to parse as double
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid amount. Please enter a valid number."); // Handle invalid input
-            }
-        }
-    }
 
-    // Method to add a deposit
-    private void addDeposit(String description, String vendor, double amount) {
-        LocalDate date = LocalDate.now(); // Get current date
-        LocalTime time = LocalTime.now(); // Get current time
-        Transaction depositTransaction = new Transaction(date, time, description, vendor, amount); // Create transaction
-        transactions.add(depositTransaction); // Add transaction to the list
-        fileManager.saveTransaction(depositTransaction); // Save transaction to the file
-    }
-
-    // Method to add a payment
-    private void addPayment(String description, String vendor, double amount) {
-        LocalDate date = LocalDate.now(); // Get current date
-        LocalTime time = LocalTime.now(); // Get current time
-        Transaction paymentTransaction = new Transaction(date, time, description, vendor, -amount); // Create payment transaction
-        transactions.add(paymentTransaction); // Add transaction to the list
-        fileManager.saveTransaction(paymentTransaction); // Save transaction to the file
-    }
 
     // Placeholder methods for reports
     public void showMonthToDateReport() {

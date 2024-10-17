@@ -1,6 +1,7 @@
 package com.pluralsight.ledger;
 
 import java.util.Scanner;
+import java.io.*;
 
 public class AccountingLedger {
     private TransactionManager transactionManager;
@@ -17,12 +18,10 @@ public class AccountingLedger {
     }
 
 
-
     public static void main(String[] args) {
         AccountingLedger app = new AccountingLedger();
         app.run(); // Run the application
     }
-
 
 
     // Display the home screen menu
@@ -30,12 +29,15 @@ public class AccountingLedger {
         String choice;
 
         do {
-            System.out.println("$$$ Accounting Ledger Application $$$");
-            System.out.println("(D) Add Deposit");
-            System.out.println("(P) Make Payment");
-            System.out.println("(L) Ledger Entries");
-            System.out.println("(R) Access Reports");
-            System.out.println("(X) Exit");
+            System.out.println("""
+                    $$$ Accounting Ledger Application $$$
+                    =====================================
+                    (D) Add Deposit
+                    (P) Make Payment
+                    (L) Ledger Entries
+                    (R) Access Reports
+                    (X) Exit
+                    """);
 
             choice = scanley.nextLine().toUpperCase(); // Read user choice
 
@@ -139,3 +141,4 @@ public class AccountingLedger {
         } while (!choice.equals("X")); // Continue until the user chooses to exit
     }
 }
+

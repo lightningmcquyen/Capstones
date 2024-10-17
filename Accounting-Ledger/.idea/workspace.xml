@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e913de5-902c-463d-b035-2aedbf203d78" name="Changes" comment="" />
+    <list default="true" id="1e913de5-902c-463d-b035-2aedbf203d78" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/AccountingLedger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/AccountingLedger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/TransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/TransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/transactions.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/AccountingLedger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/AccountingLedger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/FileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/FileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/TransactionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/TransactionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/transactions.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,5 +64,16 @@
       <updated>1729010701254</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/AccountingLedger.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -29,6 +29,7 @@ public class FileManager {
                 }
             }
         } catch (IOException e) { // Handle IO exceptions
+            e.printStackTrace();
             System.out.println("Error reading transactions file: " + e.getMessage());
         }
         return transactions; // Return the list of transactions
@@ -42,6 +43,7 @@ public class FileManager {
                     transaction.getVendor(), transaction.getAmount())); // Write transaction
             writer.newLine(); // Add a new line
         } catch (IOException e) { // Handle IO exceptions
+            e.printStackTrace();
             System.out.println("Error writing to transactions file: " + e.getMessage());
         }
     }
