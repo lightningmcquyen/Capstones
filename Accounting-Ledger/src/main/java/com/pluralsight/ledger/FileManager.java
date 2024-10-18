@@ -41,7 +41,7 @@ public class FileManager {
             writer.write(String.format("%s|%s|%s|%s|%.2f",
                     transaction.getDate(), transaction.getTime(), transaction.getDescription(),
                     transaction.getVendor(), transaction.getAmount())); // Write transaction
-            writer.newLine(); // Add a new line
+            writer.newLine(); // When the writer writes, it's assured to be the next line.
         } catch (IOException e) { // Handle IO exceptions
             e.printStackTrace();
             System.out.println("Error writing to transactions file: " + e.getMessage());

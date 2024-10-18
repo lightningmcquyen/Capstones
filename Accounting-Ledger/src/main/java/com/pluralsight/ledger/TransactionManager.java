@@ -2,14 +2,13 @@ package com.pluralsight.ledger;
 
 import java.time.LocalDate; // Imports LocalDate for handling dates
 import java.time.LocalTime; // Imports LocalTime for handling times
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList; // Imports ArrayList for using dynamic arrays
 import java.util.List; // Imports List interface
 import java.util.Scanner; // Imports Scanner for user input
 
 public class TransactionManager {
-    private List<Transaction> transactionManager; // List to hold all transactions
-    private FileManager fileManager; // Instance of FileManager for file operations
+    final private List<Transaction> transactionManager; // List to hold all transactions
+    final private FileManager fileManager; // Instance of FileManager for file operations
 
     // Method to load transactions from the file
     private void loadTransactions() {
@@ -36,18 +35,11 @@ public class TransactionManager {
         }
     }
 
-    // Method to add a deposit
-    private void addDeposit(String description, String vendor, double amount) {
-        LocalDate date = LocalDate.now(); // Get current date
-        LocalTime time = LocalTime.now(); // Get current time
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String formattedTime = time.format(timeFormatter);
-        Transaction depositTransaction = new Transaction(date, time, description, vendor, amount); // Create transaction
-        transactionManager.add(depositTransaction); // Add transaction to the list
-        fileManager.saveTransaction(depositTransaction); // Save transaction to the file
-    }
 
-    // Method to add a deposit
+    //=================================================================================================================
+
+
+    // Method to prompt for deposit
     public void addDepositPrompt(Scanner scanley) {
         System.out.print("Enter transaction description: ");
         String description = scanley.nextLine(); // Read description
@@ -57,6 +49,28 @@ public class TransactionManager {
         double amount = readAmount(scanley); // Read amount using a helper method
         addDeposit(description, vendor, amount); // Delegate to addDeposit method
         System.out.println("Deposit successful.");
+        System.out.println("What would you like to do next?");
+    }
+
+    // Method to add a deposit
+    private void addDeposit(String description, String vendor, double amount) {
+        LocalDate date = LocalDate.now(); // Get current date
+        LocalTime time = LocalTime.now(); // Get current time
+        Transaction depositTransaction = new Transaction(date, time, description, vendor, amount); // Create transaction
+        transactionManager.add(depositTransaction); // Add transaction to the list
+        fileManager.saveTransaction(depositTransaction); // Save transaction to the file
+    }
+
+    // Method to prompt for payment
+    public void addPaymentPrompt(Scanner scanley) {
+        System.out.print("Enter item description: ");
+        String description = scanley.nextLine(); // Read description
+        System.out.print("Enter vendor: ");
+        String vendor = scanley.nextLine(); // Read vendor
+        System.out.print("Enter payment amount: ");
+        double amount = readAmount(scanley); // Read amount using a helper method
+        addPayment(description, vendor, amount); // Delegate to addPayment method
+        System.out.println("Payment successful.");
         System.out.println("What would you like to do next?");
     }
 
@@ -70,18 +84,8 @@ public class TransactionManager {
     }
 
 
-    // Method to add a payment
-    public void addPaymentPrompt(Scanner scanley) {
-        System.out.print("Enter item description: ");
-        String description = scanley.nextLine(); // Read description
-        System.out.print("Enter vendor: ");
-        String vendor = scanley.nextLine(); // Read vendor
-        System.out.print("Enter payment amount: ");
-        double amount = readAmount(scanley); // Read amount using a helper method
-        addPayment(description, vendor, amount); // Delegate to addPayment method
-        System.out.println("Payment successful.");
-        System.out.println("What would you like to do next?");
-    }
+    //=================================================================================================================
+
 
     // Method to display a list of transactions
     private void displayTransactions(List<Transaction> transactionsToDisplay) {
@@ -95,22 +99,10 @@ public class TransactionManager {
         }// Display each transaction
     }
 
+
     // Method to display all transactions
     public void displayAllTransactions() {
         displayTransactions(transactionManager); // Show all transactions
-    }
-
-
-    // Method to filter and display only deposit transactions
-    public void displayDeposits() {
-        List<Transaction> deposits = filterDeposits(); // Get deposits
-        displayTransactions(deposits); // Display deposits
-    }
-
-    // Method to filter and display only payment transactions
-    public void displayPayments() {
-        List<Transaction> payments = filterPayments(); // Get payments
-        displayTransactions(payments); // Display payments
     }
 
     // Method to filter and return only deposit transactions
@@ -124,6 +116,13 @@ public class TransactionManager {
         return deposits; // Return the list of deposits
     }
 
+    // Method to display only deposit transactions
+    public void displayDeposits() {
+        List<Transaction> deposits = filterDeposits(); // Get deposits
+        displayTransactions(deposits); // Display deposits
+    }
+
+
     // Method to filter and return only payment transactions
     private List<Transaction> filterPayments() {
         List<Transaction> payments = new ArrayList<>(); // List to hold payments
@@ -135,8 +134,16 @@ public class TransactionManager {
         return payments; // Return the list of payments
     }
 
+    // Method display only payment transactions
+    public void displayPayments() {
+        List<Transaction> payments = filterPayments(); // Get payments
+        displayTransactions(payments); // Display payments
+    }
 
-    // Placeholder methods for reports
+
+    //=================================================================================================================
+
+
     public void showMonthToDateReport() {
         // Implement the month-to-date report logic here
         LocalDate today = LocalDate.now();

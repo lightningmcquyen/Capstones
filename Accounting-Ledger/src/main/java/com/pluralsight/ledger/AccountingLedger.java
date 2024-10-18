@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 
 public class AccountingLedger {
-    private TransactionManager transactionManager;
-    private Scanner scanley; // Scanner instance for user input
+    final private TransactionManager transactionManager;
+    final private Scanner scanley; // Scanner instance for user input
 
     public void run() {
         showHomeScreen(); // Display the home screen
@@ -42,23 +42,12 @@ public class AccountingLedger {
             choice = scanley.nextLine().toUpperCase(); // Read user choice
 
             switch (choice) {
-                case "D":
-                    transactionManager.addDepositPrompt(scanley); // Delegate to TransactionManager
-                    break;
-                case "P":
-                    transactionManager.addPaymentPrompt(scanley); // Delegate to TransactionManager
-                    break;
-                case "L":
-                    showLedgerEntries(); // Call the method to show ledger entries
-                    break;
-                case "R":
-                    showReportsScreen(); // Call the method to show reports screen
-                    break;
-                case "X":
-                    System.out.println("Exiting..."); // Exit the application
-                    break;
-                default:
-                    System.out.println("Invalid option. Please try again."); // Handle invalid input
+                case "D" -> transactionManager.addDepositPrompt(scanley); // Delegate to TransactionManager
+                case "P" -> transactionManager.addPaymentPrompt(scanley); // Delegate to TransactionManager
+                case "L" -> showLedgerEntries(); // Call the method to show ledger entries
+                case "R" -> showReportsScreen(); // Call the method to show reports screen
+                case "X" -> System.out.println("Exiting..."); // Exit the application
+                default -> System.out.println("Invalid option. Please try again."); // Handle invalid input
             }
         } while (!choice.equals("X")); // Continue until the user chooses to exit
     }
@@ -82,22 +71,14 @@ public class AccountingLedger {
             choice = scanley.nextLine().toUpperCase(); // Read user choice
 
             switch (choice) {
-                case "A":
-                    transactionManager.displayAllTransactions(); // Show all transactions
-                    break;
-                case "D":
-                    transactionManager.displayDeposits(); // Show only deposits
-                    break;
-                case "P":
-                    transactionManager.displayPayments(); // Show only payments
-                    break;
-                case "H":
+                case "A" -> transactionManager.displayAllTransactions(); // Show all transactions
+                case "D" -> transactionManager.displayDeposits(); // Show only deposits
+                case "P" -> transactionManager.displayPayments(); // Show only payments
+                case "H" -> {
                     return; // Return to home menu
-                case "X":
-                    System.out.println("Exiting..."); // Exit the application
-                    break;
-                default:
-                    System.out.println("Invalid option. Please try again."); // Handle invalid input
+                }
+                case "X" -> System.out.println("Exiting..."); // Exit the application
+                default -> System.out.println("Invalid option. Please try again."); // Handle invalid input
             }
         } while (!choice.equals("X")); // Continue until the user chooses to exit
     }
@@ -123,28 +104,16 @@ public class AccountingLedger {
             choice = scanley.nextLine().toUpperCase(); // Read user choice
 
             switch (choice) {
-                case "1":
-                    transactionManager.showMonthToDateReport(); // Call method for Month to Date report
-                    break;
-                case "2":
-                    transactionManager.showPreviousMonthReport(); // Call method for Previous Month report
-                    break;
-                case "3":
-                    transactionManager.showYearToDateReport(); // Call method for Year to Date report
-                    break;
-                case "4":
-                    transactionManager.showPreviousYearReport(); // Call method for Previous Year report
-                    break;
-                case "5":
-                    transactionManager.searchByVendor(scanley); // Delegate vendor search to TransactionManager
-                    break;
-                case "H":
+                case "1" -> transactionManager.showMonthToDateReport(); // Call method for Month to Date report
+                case "2" -> transactionManager.showPreviousMonthReport(); // Call method for Previous Month report
+                case "3" -> transactionManager.showYearToDateReport(); // Call method for Year to Date report
+                case "4" -> transactionManager.showPreviousYearReport(); // Call method for Previous Year report
+                case "5" -> transactionManager.searchByVendor(scanley); // Delegate vendor search to TransactionManager
+                case "H" -> {
                     return; // Return to home menu
-                case "X":
-                    System.out.println("Exiting..."); // Exit the application
-                    break;
-                default:
-                    System.out.println("Invalid option. Please try again."); // Handle invalid input
+                }
+                case "X" -> System.out.println("Exiting..."); // Exit the application
+                default -> System.out.println("Invalid option. Please try again."); // Handle invalid input
             }
         } while (!choice.equals("X")); // Continue until the user chooses to exit
     }

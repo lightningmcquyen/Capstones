@@ -6,11 +6,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Transaction {
-    private LocalDate date; // Date of the transaction
-    private LocalTime time; // Time of the transaction
-    private String description; // Description of the transaction
-    private String vendor; // Vendor associated with the transaction
-    private double amount; // Amount of the transaction
+    final private LocalDate date; // Date of the transaction
+    final private LocalTime time; // Time of the transaction
+    final private String description; // Description of the transaction
+    final private String vendor; // Vendor associated with the transaction
+    final private double amount; // Amount of the transaction
 
 
     // Define formatters
@@ -25,7 +25,7 @@ public class Transaction {
         this.vendor = vendor;
         this.amount = amount;
     }
-//you define a transaction -each instance is gonna have their date,time,description, vendor, and amount.
+//Defining a transaction -each instance will have their date,time,description, vendor, and amount.
 
 
     // Getters for each field - different attributes of a transaction
