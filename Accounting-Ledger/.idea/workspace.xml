@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e913de5-902c-463d-b035-2aedbf203d78" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/AccountingLedger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/AccountingLedger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/AccountingLedger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/AccountingLedger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/TransactionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/TransactionManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -29,7 +29,11 @@ public class AccountingLedger {
         String choice;
 
         do {
-            System.out.println("""
+            // ANSI escape code for green text
+            String greenText = "\u001B[32m";
+            String resetText = "\u001B[0m";
+
+            System.out.println(greenText + """
                     $$$ Accounting Ledger Application $$$
                     =====================================
                     (D) Add Deposit
@@ -37,7 +41,7 @@ public class AccountingLedger {
                     (L) Ledger Entries
                     (R) Access Reports
                     (X) Exit
-                    """);
+                    """ + resetText);
 
             choice = scanley.nextLine().toUpperCase(); // Read user choice
 
@@ -57,7 +61,11 @@ public class AccountingLedger {
         String choice;
 
         do {
-            System.out.println("""
+            // ANSI escape code for blue text
+            String blueText = "\u001B[34m";
+            String resetText = "\u001B[0m";
+
+            System.out.println(blueText + """
                     $$$ Ledger Entries $$$
                     ======================
                     (A) All Entries
@@ -65,7 +73,7 @@ public class AccountingLedger {
                     (P) Payments Only
                     (H) Home
                     (X) Exit
-                    """);
+                    """ + resetText);
 
 
             choice = scanley.nextLine().toUpperCase(); // Read user choice
@@ -87,7 +95,11 @@ public class AccountingLedger {
     private void showReportsScreen() {
         String choice;
 
-        do { System.out.println("""
+        do { // ANSI escape code for magenta text
+            String magentaText = "\u001B[35m";
+            String resetText = "\u001B[0m";
+
+            System.out.println(magentaText + """
                     $$$ Transaction Records $$$
                     ===========================
                     Access Reports By:
@@ -98,7 +110,7 @@ public class AccountingLedger {
                     (5) Search by Vendor
                     (H) Return Home
                     (X) Exit
-                    """);
+                    """ + resetText);
 
 
             choice = scanley.nextLine().toUpperCase(); // Read user choice
