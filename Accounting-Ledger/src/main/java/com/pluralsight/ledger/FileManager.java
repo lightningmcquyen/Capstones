@@ -13,11 +13,11 @@ public class FileManager {
     // Method to load transactions from the file
     public List<Transaction> loadTransactions() {
         List<Transaction> transactions = new ArrayList<>(); // List to hold transactions
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) { // BufferedReader for efficient reading
+        try (BufferedReader buffy = new BufferedReader(new FileReader(FILE_PATH))) { // BufferedReader for efficient reading
             String line;
             // Skip the header
-            reader.readLine();
-            while ((line = reader.readLine()) != null) { // Read each line of the file
+            buffy.readLine();
+            while ((line = buffy.readLine()) != null) { // Read each line of the file
                 String[] parts = line.split("\\|"); // Split the line by '|'
                 if (parts.length == 5) { // Ensure there are 5 parts
                     LocalDate date = LocalDate.parse(parts[0], DateTimeFormatter.ISO_LOCAL_DATE); // Parse date
