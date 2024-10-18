@@ -25,7 +25,7 @@ public class Transaction {
         this.vendor = vendor;
         this.amount = amount;
     }
-//Defining a transaction -each instance will have their date,time,description, vendor, and amount.
+
 
 
     // Getters for each field - different attributes of a transaction
@@ -65,7 +65,7 @@ public class Transaction {
                 getFormattedDate(), getFormattedTime(), description, vendor, amount);
     }
 
-    @Override
+    @Override //checking if two transaction objects are the same
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -73,7 +73,7 @@ public class Transaction {
         return Double.compare(that.amount, amount) == 0 && date.equals(that.date) && time.equals(that.time) && description.equals(that.description) && vendor.equals(that.vendor);
     }
 
-    @Override
+    @Override //unique identifier for the object. Helps quickly ID objects.
     public int hashCode() {
         return Objects.hash(date, time, description, vendor, amount);
     }

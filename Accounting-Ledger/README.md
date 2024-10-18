@@ -1,8 +1,8 @@
-# Accounting Ledger Application
+# 💰 Accounting Ledger Application 💲
 
 ## Overview
 
-The Accounting Ledger Application is a console-based Java application designed for managing financial transactions. Users can add deposits and payments, view ledger entries, and generate various reports to track their finances efficiently.
+The Accounting Ledger Application is a Java application designed for managing financial transactions. Users can add deposits and payments, view ledger entries, and generate various reports to track their finances efficiently.
 
 ## Features
 
@@ -12,20 +12,23 @@ The Accounting Ledger Application is a console-based Java application designed f
 - **Generate Reports**: Access month-to-date, previous month, year-to-date, and previous year reports.
 - **Search Transactions**: Find transactions by vendor.
 
-## Screenshots
+
+
+
+## Menus
 
 ### Home Screen
-![Home Screen](path/to/home_screen_screenshot.png)
+![Accounting Ledger Application](images/Home.png)
 
-### Ledger Entries
-![Ledger Entries](path/to/ledger_entries_screenshot.png)
+### Ledger Menu
+![Ledger Entries](images/LedgerScreen.png)
 
 ### Reports Menu
-![Reports Menu](path/to/reports_menu_screenshot.png)
+![Transaction Reports](images/ReportScreen.png)
 
-## FileWriter Class
 
-The `FileWriter` class is a crucial part of the application, responsible for persisting transaction data to a CSV file. This allows users to save their financial records and retrieve them later. The application uses a custom `FileManager` class that interacts with the `FileWriter` to handle file operations.
+
+## My FileManager Class 💖
 
 ### Key Methods in FileManager
 

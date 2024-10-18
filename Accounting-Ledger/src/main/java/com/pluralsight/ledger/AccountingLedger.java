@@ -34,7 +34,7 @@ public class AccountingLedger {
             String resetText = "\u001B[0m";
 
             System.out.println(greenText + """
-                    $$$ Accounting Ledger Application $$$
+                    💲 Accounting Ledger Application 💲
                     =====================================
                     (D) Add Deposit
                     (P) Make Payment
@@ -50,7 +50,7 @@ public class AccountingLedger {
                 case "P" -> transactionManager.addPaymentPrompt(scanley); // Delegate to TransactionManager
                 case "L" -> showLedgerEntries(); // Call the method to show ledger entries
                 case "R" -> showReportsScreen(); // Call the method to show reports screen
-                case "X" -> System.out.println("Exiting..."); // Exit the application
+                case "X" -> System.out.println("Exiting...\uD83D\uDC4B(•◡•)"); // Exit the application
                 default -> System.out.println("Invalid option. Please try again."); // Handle invalid input
             }
         } while (!choice.equals("X")); // Continue until the user chooses to exit
@@ -66,7 +66,7 @@ public class AccountingLedger {
             String resetText = "\u001B[0m";
 
             System.out.println(blueText + """
-                    $$$ Ledger Entries $$$
+                    💲 Ledger Entries 💲
                     ======================
                     (A) All Entries
                     (D) Deposits Only
@@ -85,7 +85,7 @@ public class AccountingLedger {
                 case "H" -> {
                     return; // Return to home menu
                 }
-                case "X" -> System.out.println("Exiting..."); // Exit the application
+                case "X" -> System.out.println("Exiting...\uD83D\uDC4B(•◡•)"); // Exit the application
                 default -> System.out.println("Invalid option. Please try again."); // Handle invalid input
             }
         } while (!choice.equals("X")); // Continue until the user chooses to exit
@@ -100,9 +100,9 @@ public class AccountingLedger {
             String resetText = "\u001B[0m";
 
             System.out.println(magentaText + """
-                    $$$ Transaction Records $$$
+                    💲 Transaction Reports 💲
                     ===========================
-                    Access Reports By:
+                    Generate Reports By:
                     (1) Month to Date
                     (2) Previous Month
                     (3) Year to Date
@@ -124,7 +124,7 @@ public class AccountingLedger {
                 case "H" -> {
                     return; // Return to home menu
                 }
-                case "X" -> System.out.println("Exiting..."); // Exit the application
+                case "X" -> System.out.println("Exiting...\uD83D\uDC4B(•◡•)"); // Exit the application
                 default -> System.out.println("Invalid option. Please try again."); // Handle invalid input
             }
         } while (!choice.equals("X")); // Continue until the user chooses to exit
