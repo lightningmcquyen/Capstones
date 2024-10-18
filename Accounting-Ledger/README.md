@@ -41,8 +41,8 @@ This class manages file operations for loading and saving transactions.
 This class handles the core logic of the application and user interactions.
 
 **Key Methods:**
-- `addDepositPrompt(Scanner scanley)`: Prompts the user for deposit details and adds the deposit to the ledger.
-- `addPaymentPrompt(Scanner scanley)`: Prompts the user for payment details and adds the payment to the ledger.
+- `addDepositPrompt(Scanner scanley) and addDeposit()`: Prompts the user for deposit details and adds the deposit to the ledger.
+- `addPaymentPrompt(Scanner scanley) and addPayment()`: Prompts the user for payment details and adds the payment to the ledger.
 - `displayAllTransactions()`: Displays all recorded transactions.
 - `displayDeposits()`: Displays only deposit transactions.
 - `displayPayments()`: Displays only payment transactions.
@@ -73,11 +73,7 @@ This is the main class of the application, providing the user interface.
 ### She does it all.
 - I would consider this my interesting piece of code. Last week, I would've been completely intimidated by the sight of the long methods in this class. Now, I can read it and write it just like my BufferReader and BufferWriter.
 
-**Key Methods:**
-- **loadTransactions()**: Reads transactions from the specified CSV file, creating `Transaction` objects and adding them to the transaction list.
-
-- **saveTransaction(Transaction transaction)**: Appends a new transaction to the CSV file. Each transaction is formatted and written in a structured way to ensure data consistency.
-
+![FileManager Class](images/FileManager.png)
 
 ## What can be improved in the Accounting Ledger Application?
 
@@ -85,3 +81,4 @@ This is the main class of the application, providing the user interface.
 - Be more specific when prompting user for input
 - Account for if the user was in January but wanted to look at the previous month...December.
 
+![Bai-Bai](images/tiredbaibai.png)
