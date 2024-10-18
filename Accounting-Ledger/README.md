@@ -6,7 +6,7 @@ The Accounting Ledger Application is a Java application designed for managing fi
 
 ## Features
 
-- **Add Deposits**: Record income with a description and vendor.
+- **Add Deposits**: Record deposits with a description, vendor, and amount.
 - **Make Payments**: Log expenses with details about the transaction.
 - **View Ledger Entries**: Display all transactions, deposits only, or payments only.
 - **Generate Reports**: Access month-to-date, previous month, year-to-date, and previous year reports.
