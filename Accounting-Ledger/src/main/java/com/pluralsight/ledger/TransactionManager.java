@@ -23,7 +23,7 @@ public class TransactionManager {
         loadTransactions(); // Load existing transactions from the file
     }
 
-    // Method to read and validate amount input
+    // Method to read amount input
     private double readAmount(Scanner scanley) {
         while (true) {
             try {
@@ -42,7 +42,6 @@ public class TransactionManager {
         LocalTime time = LocalTime.now(); // Get current time
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         String formattedTime = time.format(timeFormatter);
-
         Transaction depositTransaction = new Transaction(date, time, description, vendor, amount); // Create transaction
         transactionManager.add(depositTransaction); // Add transaction to the list
         fileManager.saveTransaction(depositTransaction); // Save transaction to the file
@@ -50,13 +49,15 @@ public class TransactionManager {
 
     // Method to add a deposit
     public void addDepositPrompt(Scanner scanley) {
-        System.out.print("Enter description: ");
+        System.out.print("Enter transaction description: ");
         String description = scanley.nextLine(); // Read description
         System.out.print("Enter vendor: ");
         String vendor = scanley.nextLine(); // Read vendor
-        System.out.print("Enter amount: ");
+        System.out.print("Enter deposit amount: ");
         double amount = readAmount(scanley); // Read amount using a helper method
         addDeposit(description, vendor, amount); // Delegate to addDeposit method
+        System.out.println("Deposit successful.");
+        System.out.println("What would you like to do next?");
     }
 
     // Method to add a payment
@@ -71,13 +72,15 @@ public class TransactionManager {
 
     // Method to add a payment
     public void addPaymentPrompt(Scanner scanley) {
-        System.out.print("Enter description: ");
+        System.out.print("Enter item description: ");
         String description = scanley.nextLine(); // Read description
         System.out.print("Enter vendor: ");
         String vendor = scanley.nextLine(); // Read vendor
-        System.out.print("Enter amount: ");
+        System.out.print("Enter payment amount: ");
         double amount = readAmount(scanley); // Read amount using a helper method
         addPayment(description, vendor, amount); // Delegate to addPayment method
+        System.out.println("Payment successful.");
+        System.out.println("What would you like to do next?");
     }
 
     // Method to display a list of transactions
@@ -86,7 +89,9 @@ public class TransactionManager {
             System.out.println("No transactions found."); // Inform user if no transactions exist
             return;
         }
-        transactionsToDisplay.forEach(transaction -> System.out.println(transaction)); // Display each transaction
+        for (Transaction transaction : transactionsToDisplay) {
+            System.out.println(transaction);
+        }// Display each transaction
     }
 
     // Method to display all transactions
