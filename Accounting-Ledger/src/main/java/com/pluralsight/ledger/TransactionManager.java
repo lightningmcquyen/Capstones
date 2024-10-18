@@ -1,10 +1,10 @@
 package com.pluralsight.ledger;
 
-import java.time.LocalDate; // Imports LocalDate for handling dates
-import java.time.LocalTime; // Imports LocalTime for handling times
-import java.util.ArrayList; // Imports ArrayList for using dynamic arrays
-import java.util.List; // Imports List interface
-import java.util.Scanner; // Imports Scanner for user input
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class TransactionManager {
     final private List<Transaction> transactionManager; // List to hold all transactions
@@ -29,15 +29,10 @@ public class TransactionManager {
                 String input = scanley.nextLine(); // Read input from user
                 return Double.parseDouble(input); // Try to parse as double
             } catch (NumberFormatException e) {
-                e.printStackTrace();
                 System.out.println("Invalid amount. Please enter a valid number."); // Handle invalid input
             }
         }
     }
-
-
-    //=================================================================================================================
-
 
     // Method to prompt for deposit
     public void addDepositPrompt(Scanner scanley) {
@@ -49,7 +44,6 @@ public class TransactionManager {
         double amount = readAmount(scanley); // Read amount using a helper method
         addDeposit(description, vendor, amount); // Delegate to addDeposit method
         System.out.println("Deposit successful.");
-        System.out.println("What would you like to do next?");
     }
 
     // Method to add a deposit
@@ -71,7 +65,6 @@ public class TransactionManager {
         double amount = readAmount(scanley); // Read amount using a helper method
         addPayment(description, vendor, amount); // Delegate to addPayment method
         System.out.println("Payment successful.");
-        System.out.println("What would you like to do next?");
     }
 
     // Method to add a payment
@@ -93,12 +86,12 @@ public class TransactionManager {
             System.out.println("No transactions found."); // Inform user if no transactions exist
             return;
         }
-        for (Transaction transaction : transactionsToDisplay) {
-            System.out.println(transaction);
-            System.out.println("What would you like to do next?");
-        }// Display each transaction
-    }
 
+        // Loop from the end of the list to the beginning
+        for (int i = transactionsToDisplay.size() - 1; i >= 0; i--) { // newest entries first
+            System.out.println(transactionsToDisplay.get(i)); // Display each transaction
+        }
+    }
 
     // Method to display all transactions
     public void displayAllTransactions() {
@@ -122,7 +115,6 @@ public class TransactionManager {
         displayTransactions(deposits); // Display deposits
     }
 
-
     // Method to filter and return only payment transactions
     private List<Transaction> filterPayments() {
         List<Transaction> payments = new ArrayList<>(); // List to hold payments
@@ -134,7 +126,7 @@ public class TransactionManager {
         return payments; // Return the list of payments
     }
 
-    // Method display only payment transactions
+    // Method to display only payment transactions
     public void displayPayments() {
         List<Transaction> payments = filterPayments(); // Get payments
         displayTransactions(payments); // Display payments

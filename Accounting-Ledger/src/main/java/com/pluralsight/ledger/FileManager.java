@@ -11,7 +11,7 @@ public class FileManager {
     private static final String FILE_PATH = "src/main/resources/transactions.csv"; // Path to the transactions file
 
     // Method to load transactions from the file
-    public List<Transaction> loadTransactions() { //A list is a mutable collection. I use this so it can be changed dynamically.
+    public List<Transaction> loadTransactions() {
         List<Transaction> transactions = new ArrayList<>(); // List to hold transactions
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) { // BufferedReader for efficient reading
             String line;
@@ -38,10 +38,14 @@ public class FileManager {
     // Method to save a transaction to the file
     public void saveTransaction(Transaction transaction) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) { // Open file
+            // Create a time formatter to format LocalTime without nanoseconds
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            String formattedTime = transaction.getTime().format(timeFormatter); // Format the time
+
             writer.write(String.format("%s|%s|%s|%s|%.2f",
-                    transaction.getDate(), transaction.getTime(), transaction.getDescription(),
+                    transaction.getDate(), formattedTime, transaction.getDescription(),
                     transaction.getVendor(), transaction.getAmount())); // Write transaction
-            writer.newLine(); // When the writer writes, it's assured to be the next line.
+            writer.newLine(); // Move to the next line
         } catch (IOException e) { // Handle IO exceptions
             e.printStackTrace();
             System.out.println("Error writing to transactions file: " + e.getMessage());
