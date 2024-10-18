@@ -3,13 +3,15 @@ package com.pluralsight.ledger;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Transaction {
-    private final LocalDate date; // Date of the transaction
-    private final LocalTime time; // Time of the transaction
-    private final String description; // Description of the transaction
-    private final String vendor; // Vendor associated with the transaction
-    private final double amount; // Amount of the transaction
+    private LocalDate date; // Date of the transaction
+    private LocalTime time; // Time of the transaction
+    private String description; // Description of the transaction
+    private String vendor; // Vendor associated with the transaction
+    private double amount; // Amount of the transaction
+
 
     // Define formatters
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -23,8 +25,10 @@ public class Transaction {
         this.vendor = vendor;
         this.amount = amount;
     }
+//you define a transaction -each instance is gonna have their date,time,description, vendor, and amount.
 
-    // Getters for each field
+
+    // Getters for each field - different attributes of a transaction
     public LocalDate getDate() {
         return date;
     }
@@ -60,5 +64,17 @@ public class Transaction {
         return String.format("%s | %s | %s | %s | %.2f",
                 getFormattedDate(), getFormattedTime(), description, vendor, amount);
     }
-}
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transaction that = (Transaction) o;
+        return Double.compare(that.amount, amount) == 0 && date.equals(that.date) && time.equals(that.time) && description.equals(that.description) && vendor.equals(that.vendor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(date, time, description, vendor, amount);
+    }
+}

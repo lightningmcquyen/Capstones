@@ -68,6 +68,7 @@ public class TransactionManager {
         fileManager.saveTransaction(paymentTransaction); // Save transaction to the file
     }
 
+
     // Method to add a payment
     public void addPaymentPrompt(Scanner scanley) {
         System.out.print("Enter description: ");
@@ -92,7 +93,6 @@ public class TransactionManager {
     public void displayAllTransactions() {
         displayTransactions(transactionManager); // Show all transactions
     }
-
 
 
     // Method to filter and display only deposit transactions
@@ -130,26 +130,60 @@ public class TransactionManager {
     }
 
 
-
-
     // Placeholder methods for reports
     public void showMonthToDateReport() {
         // Implement the month-to-date report logic here
+        LocalDate today = LocalDate.now();
+        for (Transaction transaction : transactionManager) {
+            if (transaction.getDate().getMonth() == today.getMonth() &&
+                    transaction.getDate().getYear() == today.getYear()) {
+                System.out.println(transaction);
+            }
+        }
     }
 
     public void showPreviousMonthReport() {
         // Implement the previous month report logic here
+        LocalDate today = LocalDate.now();
+        LocalDate firstDayOfLastMonth = today.minusMonths(1).withDayOfMonth(1);
+        LocalDate lastDayOfLastMonth = today.minusMonths(1).withDayOfMonth(today.minusMonths(1).lengthOfMonth());
+
+        for (Transaction transaction : transactionManager) {
+            if (transaction.getDate().isEqual(firstDayOfLastMonth) ||
+                    (transaction.getDate().isAfter(firstDayOfLastMonth) && transaction.getDate().isBefore(lastDayOfLastMonth.plusDays(1)))) {
+                System.out.println(transaction);
+            }
+        }
     }
 
     public void showYearToDateReport() {
         // Implement the year-to-date report logic here
+        LocalDate today = LocalDate.now();
+        for (Transaction transaction : transactionManager) {
+            if (transaction.getDate().getYear() == today.getYear()) {
+                System.out.println(transaction);
+            }
+        }
     }
 
     public void showPreviousYearReport() {
         // Implement the previous year report logic here
+        LocalDate today = LocalDate.now();
+        for (Transaction transaction : transactionManager) {
+            if (transaction.getDate().getYear() == today.getYear() - 1) {
+                System.out.println(transaction);
+            }
+        }
     }
 
     public void searchByVendor(Scanner scanley) {
         // Implement the search by vendor logic here
+        String vendor = scanley.nextLine().trim();
+        for (Transaction transaction : transactionManager) {
+            if (transaction.getVendor().equalsIgnoreCase(vendor)) {
+                System.out.println(transaction);
+            }
+        }
+
     }
 }

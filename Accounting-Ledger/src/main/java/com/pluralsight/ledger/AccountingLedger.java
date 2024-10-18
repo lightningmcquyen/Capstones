@@ -141,4 +141,3 @@ public class AccountingLedger {
         } while (!choice.equals("X")); // Continue until the user chooses to exit
     }
 }
-

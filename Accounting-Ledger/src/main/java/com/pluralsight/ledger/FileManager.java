@@ -11,7 +11,7 @@ public class FileManager {
     private static final String FILE_PATH = "src/main/resources/transactions.csv"; // Path to the transactions file
 
     // Method to load transactions from the file
-    public List<Transaction> loadTransactions() {
+    public List<Transaction> loadTransactions() { //A list is a mutable collection. I use this so it can be changed dynamically.
         List<Transaction> transactions = new ArrayList<>(); // List to hold transactions
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) { // BufferedReader for efficient reading
             String line;
