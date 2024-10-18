@@ -68,12 +68,16 @@ public class AccountingLedger {
         String choice;
 
         do {
-            System.out.println("Ledger Entries");
-            System.out.println("(A) All Entries");
-            System.out.println("(D) Deposits Only");
-            System.out.println("(P) Payments Only");
-            System.out.println("(H) Home");
-            System.out.println("(X) Exit");
+            System.out.println("""
+                    $$$ Ledger Entries $$$
+                    ======================
+                    (A) All Entries
+                    (D) Deposits Only
+                    (P) Payments Only
+                    (H) Home
+                    (X) Exit
+                    """);
+
 
             choice = scanley.nextLine().toUpperCase(); // Read user choice
 
@@ -102,15 +106,19 @@ public class AccountingLedger {
     private void showReportsScreen() {
         String choice;
 
-        do {
-            System.out.println("Access Reports By:");
-            System.out.println("(1) Month to Date");
-            System.out.println("(2) Previous Month");
-            System.out.println("(3) Year to Date");
-            System.out.println("(4) Previous Year");
-            System.out.println("(5) Search by Vendor");
-            System.out.println("(H) Return Home");
-            System.out.println("(X) Exit");
+        do { System.out.println("""
+                    $$$ Transaction Records $$$
+                    ===========================
+                    Access Reports By:
+                    (1) Month to Date
+                    (2) Previous Month
+                    (3) Year to Date
+                    (4) Previous Year
+                    (5) Search by Vendor
+                    (H) Return Home
+                    (X) Exit
+                    """);
+
 
             choice = scanley.nextLine().toUpperCase(); // Read user choice
 

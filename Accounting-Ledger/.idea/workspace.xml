@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1e913de5-902c-463d-b035-2aedbf203d78" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/AccountingLedger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/AccountingLedger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/TransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/ledger/TransactionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/transactions.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/TransactionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pluralsight/ledger/TransactionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/transactions.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

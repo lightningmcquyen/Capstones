@@ -91,6 +91,7 @@ public class TransactionManager {
         }
         for (Transaction transaction : transactionsToDisplay) {
             System.out.println(transaction);
+            System.out.println("What would you like to do next?");
         }// Display each transaction
     }
 
